@@ -9,20 +9,24 @@ function App() {
   gsap.registerPlugin(useGSAP);
   const icon = useRef(null);
 
-  useGSAP(() => {
-    gsap.to(".logo", {
-      rotation: "+=360",
-      duration: 2,
-      repeat: 3,
+  useGSAP(
+    () => {
+      gsap.to(".logo", {
+        y: 400,
+        rotation: "+=360",
+        duration: 2,
+        repeat: 1,
 
-      yoyo: true,
-    });
-  });
+        yoyo: true,
+      });
+    },
+    { scope: icon }
+  );
 
   return (
     <>
       <div className="">
-        <a href="https://vite.dev" target="_blank">
+        <a ref={icon} href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
